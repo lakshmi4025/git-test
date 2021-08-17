@@ -6,7 +6,7 @@ pipeline {
             steps {
                 input('Do you want to proceed?')
                 options {
-                    timeout(time: 1, unit: 'MINUTES')
+                    timeout(time: 60, unit: 'seconds')
                    }
              
              
@@ -22,5 +22,5 @@ stage('If Proceed is clicked') {
             }
         }
     }
-}
+
 
