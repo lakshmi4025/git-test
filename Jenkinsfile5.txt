@@ -5,13 +5,26 @@ pipeline {
         stage('Input') {
             steps {
                 input('Do you want to proceed?')
+                
             }
         }
 
-        stage('If Proceed is clicked') {
+          stage('validate') {
+          steps{
+          timeout(60S) {
+          script {
+               input('please validate this it will automatically aborted after 60 seconds')
+    }
+       
+  }
+       
+}        
+
+stage('If Proceed is clicked') {
             steps {
                 print('hello')
             }
         }
     }
+}
 }
