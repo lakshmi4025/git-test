@@ -1,26 +1,20 @@
 pipeline {
-    agent any
+    agent test
 
     stages {
         stage('Build') {
+            agent { label 'test​' }
             steps {
-                echo 'Building.. This is the build phase'
+                echo 'Building..'
+                sh '''
+                '''
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing.. This is the testing phase'
-            }
+    }
+
+    post {
+        success {
+            echo 'This will run only if successful'
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....  This is the deployment phase'
-            }
-        }
-	stage('Postdeploy') {
-		steps {
-			echo 'Postdeployment phase....'
-		}
-	}
     }
 }
